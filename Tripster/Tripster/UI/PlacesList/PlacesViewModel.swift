@@ -18,8 +18,8 @@ class PlacesViewModel {
         }
     }
     
-    var listPlacesClosure : (([PlacesResult]) -> ())?
-    private var listPlaces: [PlacesResult] = [PlacesResult]() {
+    var listPlacesClosure : (([PlaceOfInterest]) -> ())?
+    private var listPlaces: [PlaceOfInterest] = [PlaceOfInterest]() {
         didSet {
             self.listPlacesClosure?(listPlaces)
         }
@@ -43,7 +43,9 @@ class PlacesViewModel {
                     return
                 }
                 
-                self.listPlaces = placesResult.results ?? []
+                let listPlacesOfInterest = PlacesMapper.mapListPlaces(networkPlaces: placesResult.results)
+                
+                self.listPlaces = listPlacesOfInterest
                 self.isLoading = false
             }
     }

@@ -16,7 +16,7 @@ class PlacesViewController: UIViewController, UITableViewDataSource {
     lazy var mainView : PlacesView = {
         return self.view.viewWithTag(1) as! PlacesView
     }()
-    private var listPlaces: [PlacesResult] = []
+    private var listPlaces: [PlaceOfInterest] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +42,7 @@ class PlacesViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = listPlaces[indexPath.row].name ?? "Unknown"
+        cell.textLabel?.text = listPlaces[indexPath.row].name
         return cell
     }
     

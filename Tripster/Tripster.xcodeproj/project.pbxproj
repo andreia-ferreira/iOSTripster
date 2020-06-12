@@ -11,6 +11,7 @@
 		75ECB9DB2493900700E001D0 /* AlamofireHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ECB9DA2493900700E001D0 /* AlamofireHelper.swift */; };
 		75ECB9DE2493904200E001D0 /* PlacesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ECB9DD2493904200E001D0 /* PlacesRepository.swift */; };
 		75ECB9E0249391D700E001D0 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ECB9DF249391D700E001D0 /* Secrets.swift */; };
+		75ECB9E72493A64E00E001D0 /* PlacesMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ECB9E62493A64E00E001D0 /* PlacesMapper.swift */; };
 		75F7BA3E2492C96300D4A573 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F7BA3D2492C96300D4A573 /* AppDelegate.swift */; };
 		75F7BA452492C96300D4A573 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75F7BA432492C96300D4A573 /* Main.storyboard */; };
 		75F7BA472492C96600D4A573 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75F7BA462492C96600D4A573 /* Assets.xcassets */; };
@@ -101,6 +102,7 @@
 		75ECB9DA2493900700E001D0 /* AlamofireHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireHelper.swift; sourceTree = "<group>"; };
 		75ECB9DD2493904200E001D0 /* PlacesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesRepository.swift; sourceTree = "<group>"; };
 		75ECB9DF249391D700E001D0 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		75ECB9E62493A64E00E001D0 /* PlacesMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesMapper.swift; sourceTree = "<group>"; };
 		75F7BA3A2492C96300D4A573 /* Tripster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tripster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75F7BA3D2492C96300D4A573 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75F7BA442492C96300D4A573 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -181,6 +183,22 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
+		75ECB9E52493A62D00E001D0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				75ECB9E82493A86B00E001D0 /* Mapper */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		75ECB9E82493A86B00E001D0 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				75ECB9E62493A64E00E001D0 /* PlacesMapper.swift */,
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
 		75F7BA312492C96300D4A573 = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +219,7 @@
 		75F7BA3C2492C96300D4A573 /* Tripster */ = {
 			isa = PBXGroup;
 			children = (
+				75ECB9E52493A62D00E001D0 /* Utils */,
 				75ECB9DC2493902700E001D0 /* Repository */,
 				75ECB9D924938FD500E001D0 /* Network */,
 				75F7BAD32492DC7100D4A573 /* Model */,
@@ -426,6 +445,7 @@
 			files = (
 				75ECB9D1249383B400E001D0 /* PlaceOfInterest.swift in Sources */,
 				75ECB9DE2493904200E001D0 /* PlacesRepository.swift in Sources */,
+				75ECB9E72493A64E00E001D0 /* PlacesMapper.swift in Sources */,
 				75F7BADE2492E00A00D4A573 /* Photo.swift in Sources */,
 				75F7BAD82492DEA100D4A573 /* PlacesResult.swift in Sources */,
 				75F7BAD62492DE5500D4A573 /* GooglePlacesDefaultResponse.swift in Sources */,
