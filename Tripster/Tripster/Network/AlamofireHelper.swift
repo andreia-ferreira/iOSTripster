@@ -12,7 +12,7 @@ import Alamofire
 struct AlamofireHelper {
     var headers: Dictionary<String, String> = [:]
     
-    func getNearbyPlaces(latLng: String, type: String, radius: Int, completion: @escaping(_ result: GooglePlacesDefaultResponse?, _ error: String?) -> ()) {
+    func getNearbyPlaces(latLng: String, type: String, radius: Int, completion: @escaping(_ result: DataResponse<GooglePlacesDefaultResponse, AFError>?) -> ()) {
         let query: [String : Any] = [
             "location": latLng,
             "radius": radius,
@@ -25,23 +25,7 @@ struct AlamofireHelper {
             .validate()
             .responseDecodable(of: GooglePlacesDefaultResponse.self) { (response) in
                 debugPrint(response)
-                
-                guard response.value != nil else {
-                    completion(nil, "There was a problem while fetching the results, please try again later.")
-                    return
-                }
-                
-                guard response.value?.errorMessage == nil else {
-                    completion(nil, response.value?.errorMessage)
-                    return
-                }
-                
-                guard response.value?.results != nil && (response.value?.results?.isEmpty == false) else {
-                    completion(nil, "No results found.")
-                    return
-                }
-                
-                completion(response.value, nil)
+                completion(response)
             }
     }
     

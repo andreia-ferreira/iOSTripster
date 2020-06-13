@@ -30,8 +30,8 @@ class PlacesViewModel {
         }
     }
     
-    var errorClosure : ((String?) -> ())?
-    private var errorMessage: String? = nil {
+    var errorClosure : ((String) -> ())?
+    private var errorMessage: String = String() {
         didSet {
             self.errorClosure?(errorMessage)
         }
@@ -42,7 +42,7 @@ class PlacesViewModel {
         
         self.repository.getNetworkPlaces(latLng: "41.2053, -8.3305", type: typePlace, radius: 20000) { (response, error) in
             guard error == nil else {
-                self.errorMessage = error
+                self.errorMessage = error ?? "Unknown error"
                 return
             }
             

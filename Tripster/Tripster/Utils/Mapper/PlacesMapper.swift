@@ -21,9 +21,10 @@ struct PlacesMapper {
     }
     
     static func mapPlace(_ dto: PlacesResult) -> PlaceOfInterest {
+        let imageUrl = "\(BASE_URL)place/photo?key=\(GOOGLE_MAPS_KEY)&maxwidth=1080&photoreference=\(dto.photos?[0].photoReference ?? "")"
         return PlaceOfInterest(placeId: dto.placeID ?? ""
             , name: dto.name ?? "Unknown",
-              imageUrl: dto.photos?[0].photoReference ?? "",
+              imageUrl: imageUrl,
               isOpen: dto.openingHours?.openNow,
               types: dto.types ?? [])
     }

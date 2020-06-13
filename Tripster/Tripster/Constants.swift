@@ -9,3 +9,4 @@
 import Foundation
 
 let BASE_URL = "https://maps.googleapis.com/maps/api/"
+let BUNDLE_IDENTIFIER = "com.penguin.Tripster"
