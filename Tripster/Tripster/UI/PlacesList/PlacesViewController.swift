@@ -17,20 +17,26 @@ class PlacesViewController: UIViewController {
         return self.view.viewWithTag(1) as! PlacesView
     }()
     private var listPlaces: [PlaceOfInterest] = []
+    private var spotlightPlaces: [PlaceOfInterest] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainView.registerTableViewCells()
+        mainView.setupLayout()
         viewModel.getPlaces()
         
         initObservers()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        mainView.placesTableView.dataSource = self
     }
     
     private func initObservers() {
         viewModel.listPlacesClosure = {[weak self] (value) in
             DispatchQueue.main.async {
                 if let _self = self {
-                    _self.listPlaces = value
+                    _self.listPlaces = Array(value[3...])
+                    _self.spotlightPlaces = Array(value[0...3])
                     _self.mainView.placesTableView.reloadData()
                     _self.mainView.errorView.isHidden = true
                 }
@@ -69,15 +75,12 @@ extension PlacesViewController: UITableViewDataSource {
         
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SpotlightTableViewCell", for: indexPath) as! SpotlightTableViewCell
-            cell.placeName?.text = listPlaces[indexPath.row].name
-            cell.placeImage.setImageFromUrl(urlString: listPlaces[indexPath.row].imageUrl)
+            cell.spotlightItems = spotlightPlaces
             return cell
         } else {
-            let cell = UITableViewCell()
-            cell.textLabel?.text = listPlaces[indexPath.row].name
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PlaceTableViewCell", for: indexPath) as! PlaceTableViewCell
+            cell.setPlace(place: listPlaces[indexPath.row])
             return cell
         }
-        
-        
     }
 }

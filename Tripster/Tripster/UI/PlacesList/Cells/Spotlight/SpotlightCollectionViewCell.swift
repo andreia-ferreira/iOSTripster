@@ -1,5 +1,5 @@
 //
-//  SpotlightCellTableViewCell.swift
+//  SpotlightCollectionViewCell.swift
 //  Tripster
 //
 //  Created by Andreia on 13/06/2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SpotlightTableViewCell: UITableViewCell {
+class SpotlightCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var placeImage: UIImageView!
     @IBOutlet weak var placeName: UILabel!
@@ -17,11 +17,13 @@ class SpotlightTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func setPlaceName(name: String) {
+        placeName.text = name
     }
     
+    func setPlaceImage(urlImage: String) {
+        placeImage.setImageFromUrl(urlString: urlImage)
+    }
+
 }

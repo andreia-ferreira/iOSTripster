@@ -15,11 +15,16 @@ class PlacesView: UIView {
     @IBOutlet weak var errorView: UIView!
     @IBOutlet weak var errorLabel: UILabel!
     
-    func registerTableViewCells() {
+    func setupLayout() {
+        registerTableViewCells()
+    }
+    
+    private func registerTableViewCells() {
         let bundle = Bundle(identifier: BUNDLE_IDENTIFIER)
-        let cell = UINib(nibName: "SpotlightTableViewCell", bundle: bundle)
-        self.placesTableView.register(cell, forCellReuseIdentifier: "SpotlightTableViewCell")
-        placesTableView.rowHeight = UITableView.automaticDimension
+        let spotlightCell = UINib(nibName: "SpotlightTableViewCell", bundle: bundle)
+        self.placesTableView.register(spotlightCell, forCellReuseIdentifier: "SpotlightTableViewCell")
+        let standardCell = UINib(nibName: "PlaceTableViewCell", bundle: bundle)
+        self.placesTableView.register(standardCell, forCellReuseIdentifier: "PlaceTableViewCell")
     }
     
     func showErrorMessage(errorMessage: String) {

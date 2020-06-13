@@ -10,6 +10,10 @@
 		759B24E124955130002F7221 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759B24E024955130002F7221 /* Extensions.swift */; };
 		759B24ED24955B00002F7221 /* SpotlightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759B24EB24955B00002F7221 /* SpotlightTableViewCell.swift */; };
 		759B24EE24955B00002F7221 /* SpotlightTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 759B24EC24955B00002F7221 /* SpotlightTableViewCell.xib */; };
+		759B250424956D81002F7221 /* SpotlightCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759B250224956D81002F7221 /* SpotlightCollectionViewCell.swift */; };
+		759B250524956D81002F7221 /* SpotlightCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 759B250324956D81002F7221 /* SpotlightCollectionViewCell.xib */; };
+		759B251124957871002F7221 /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759B250F24957871002F7221 /* PlaceTableViewCell.swift */; };
+		759B251224957871002F7221 /* PlaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 759B251024957871002F7221 /* PlaceTableViewCell.xib */; };
 		75ECB9D1249383B400E001D0 /* PlaceOfInterest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ECB9D0249383B400E001D0 /* PlaceOfInterest.swift */; };
 		75ECB9DB2493900700E001D0 /* AlamofireHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ECB9DA2493900700E001D0 /* AlamofireHelper.swift */; };
 		75ECB9DE2493904200E001D0 /* PlacesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ECB9DD2493904200E001D0 /* PlacesRepository.swift */; };
@@ -106,6 +110,10 @@
 		759B24E024955130002F7221 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		759B24EB24955B00002F7221 /* SpotlightTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightTableViewCell.swift; sourceTree = "<group>"; };
 		759B24EC24955B00002F7221 /* SpotlightTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpotlightTableViewCell.xib; sourceTree = "<group>"; };
+		759B250224956D81002F7221 /* SpotlightCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightCollectionViewCell.swift; sourceTree = "<group>"; };
+		759B250324956D81002F7221 /* SpotlightCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpotlightCollectionViewCell.xib; sourceTree = "<group>"; };
+		759B250F24957871002F7221 /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
+		759B251024957871002F7221 /* PlaceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceTableViewCell.xib; sourceTree = "<group>"; };
 		75ECB9D0249383B400E001D0 /* PlaceOfInterest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceOfInterest.swift; sourceTree = "<group>"; };
 		75ECB9DA2493900700E001D0 /* AlamofireHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireHelper.swift; sourceTree = "<group>"; };
 		75ECB9DD2493904200E001D0 /* PlacesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesRepository.swift; sourceTree = "<group>"; };
@@ -180,10 +188,22 @@
 		759B24F024956A9D002F7221 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				759B24EB24955B00002F7221 /* SpotlightTableViewCell.swift */,
-				759B24EC24955B00002F7221 /* SpotlightTableViewCell.xib */,
+				759B250724957838002F7221 /* Spotlight */,
+				759B250F24957871002F7221 /* PlaceTableViewCell.swift */,
+				759B251024957871002F7221 /* PlaceTableViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		759B250724957838002F7221 /* Spotlight */ = {
+			isa = PBXGroup;
+			children = (
+				759B24EB24955B00002F7221 /* SpotlightTableViewCell.swift */,
+				759B24EC24955B00002F7221 /* SpotlightTableViewCell.xib */,
+				759B250224956D81002F7221 /* SpotlightCollectionViewCell.swift */,
+				759B250324956D81002F7221 /* SpotlightCollectionViewCell.xib */,
+			);
+			path = Spotlight;
 			sourceTree = "<group>";
 		};
 		75ECB9D924938FD500E001D0 /* Network */ = {
@@ -452,9 +472,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				759B251224957871002F7221 /* PlaceTableViewCell.xib in Resources */,
 				75F7BA592492CF1800D4A573 /* GooglePlaces.bundle in Resources */,
 				75F7BA522492C99F00D4A573 /* LaunchScreen.storyboard in Resources */,
 				75F7BA472492C96600D4A573 /* Assets.xcassets in Resources */,
+				759B250524956D81002F7221 /* SpotlightCollectionViewCell.xib in Resources */,
 				759B24EE24955B00002F7221 /* SpotlightTableViewCell.xib in Resources */,
 				75F7BA452492C96300D4A573 /* Main.storyboard in Resources */,
 			);
@@ -477,6 +499,7 @@
 				75F7BAD62492DE5500D4A573 /* GooglePlacesDefaultResponse.swift in Sources */,
 				75ECB9DB2493900700E001D0 /* AlamofireHelper.swift in Sources */,
 				75F7BAE42492E9CE00D4A573 /* PlacesView.swift in Sources */,
+				759B250424956D81002F7221 /* SpotlightCollectionViewCell.swift in Sources */,
 				75F7BAD12492D9C200D4A573 /* PlacesViewController.swift in Sources */,
 				75F7BAE22492E66F00D4A573 /* PlacesViewModel.swift in Sources */,
 				75ECB9F62493B5D500E001D0 /* ApiEndpoints.swift in Sources */,
@@ -485,6 +508,7 @@
 				759B24E124955130002F7221 /* Extensions.swift in Sources */,
 				75ECB9E0249391D700E001D0 /* Secrets.swift in Sources */,
 				75F7BADA2492DFB900D4A573 /* Geometry.swift in Sources */,
+				759B251124957871002F7221 /* PlaceTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
