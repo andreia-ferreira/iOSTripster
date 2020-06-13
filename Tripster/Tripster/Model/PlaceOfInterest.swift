@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+struct PlaceOfInterest {
+    let placeId: String
+    let name: String
+    let imageUrl: String
+    let isOpen: Bool?
+    let types: [String]
+}
