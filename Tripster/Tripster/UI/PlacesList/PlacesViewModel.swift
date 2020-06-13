@@ -11,6 +11,11 @@ import Alamofire
 
 class PlacesViewModel {
     
+    let typePlace = "tourist_attraction"
+    lazy var repository : PlacesRepository = {
+        return PlacesRepository()
+    }()
+    
     var loadingClosure : ((Bool) -> ())?
     private var isLoading: Bool = true {
         didSet {
@@ -25,29 +30,29 @@ class PlacesViewModel {
         }
     }
     
+    var errorClosure : ((String?) -> ())?
+    private var errorMessage: String? = nil {
+        didSet {
+            self.errorClosure?(errorMessage)
+        }
+    }
+    
     func getPlaces() {
         isLoading = true
         
-        let url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
-        AF.request(url,
-                   method: .get,
-                   parameters: ["location": "41.2053,-8.3305",
-                                "type": "tourist_attraction",
-                                "key": GOOGLE_MAPS_KEY,
-                                "radius": "20000"])
-            .validate()
-            .responseDecodable(of: GooglePlacesDefaultResponse.self) { (response) in
-                debugPrint(response)
-                
-                guard let placesResult = response.value else {
-                    return
-                }
-                
-                let listPlacesOfInterest = PlacesMapper.mapListPlaces(networkPlaces: placesResult.results)
-                
-                self.listPlaces = listPlacesOfInterest
+        self.repository.getNetworkPlaces(latLng: "41.2053, -8.3305", type: typePlace, radius: 20000) { (response, error) in
+            guard error == nil else {
+                self.errorMessage = error
+                return
+            }
+            
+            if let placesResult = response?.results {
+                let mappedPlaces = PlacesMapper.mapListPlaces(networkPlaces: placesResult)
+                self.listPlaces = mappedPlaces
                 self.isLoading = false
             }
+            
+        }
     }
     
 }

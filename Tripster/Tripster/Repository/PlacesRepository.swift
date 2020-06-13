@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+class PlacesRepository {
+    
+    let apiClient = AlamofireHelper()
+    
+    func getNetworkPlaces(latLng: String, type: String, radius: Int, completion: @escaping(_ result: GooglePlacesDefaultResponse?, _ error: String?) -> ()) {
+        apiClient.getNearbyPlaces(latLng: latLng, type: type, radius: radius) { (response, error) in
+            completion(response, error)
+        }
+    }
+    
+}

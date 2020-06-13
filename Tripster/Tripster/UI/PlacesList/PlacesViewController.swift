@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlacesViewController: UIViewController, UITableViewDataSource {
+class PlacesViewController: UIViewController {
     
     lazy var viewModel : PlacesViewModel = {
         return PlacesViewModel()
@@ -35,7 +35,9 @@ class PlacesViewController: UIViewController, UITableViewDataSource {
             }
         }
     }
-    
+}
+
+extension PlacesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listPlaces.count
     }
@@ -45,5 +47,4 @@ class PlacesViewController: UIViewController, UITableViewDataSource {
         cell.textLabel?.text = listPlaces[indexPath.row].name
         return cell
     }
-    
 }
