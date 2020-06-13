@@ -4,6 +4,7 @@ Simple application displaying points of interest around the user. This applicati
 
 Key Points:
 
-Main language: Swift5
-MVVM architecture
-Use of Google Places API (needs api key)
+- Main language: Swift5; 
+- MVVM architecture; 
+- Use of Alamofire lib; 
+- Use of Google Places API (needs api key); 
